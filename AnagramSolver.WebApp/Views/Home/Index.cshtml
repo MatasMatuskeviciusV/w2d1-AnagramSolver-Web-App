@@ -1,0 +1,28 @@
+﻿@model AnagramSolver.WebApp.Models.AnagramViewModel
+
+<form asp-action="Index" method="get">
+    <input type="text" name="id" placeholder="Įveskite žodį" />
+    <button type="submit">Ieškoti</button>
+</form>
+
+@if (Model.IsShort && Model.HasInput)
+{
+    <p style="color:red;">Įvestas žodis per trumpas.</p>
+}
+
+else if (Model.HasInput && !Model.IsShort && Model.Results.Count > 0)
+{
+    <ul>
+        @foreach (var word in Model.Results)
+        {
+            <li>
+                @word
+            </li>
+        }
+    </ul>
+}
+
+else if (Model.HasInput && !Model.IsShort && Model.Results.Count == 0)
+{
+    <p>Anagramų nerasta.</p>
+}
