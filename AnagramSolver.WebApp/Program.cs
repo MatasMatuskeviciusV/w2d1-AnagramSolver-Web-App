@@ -3,10 +3,6 @@ using AnagramSolver.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var rootAppSettings = Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "..", "appsettings.json"));
-
-builder.Configuration.AddJsonFile(rootAppSettings, optional: false, reloadOnChange: true);
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

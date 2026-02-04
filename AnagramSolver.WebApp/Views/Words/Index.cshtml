@@ -1,0 +1,60 @@
+﻿@model AnagramSolver.WebApp.Models.WordsPageViewModel;
+
+<h2>Words</h2>
+
+<div>
+    @if (Model.HasPrevious)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Ankstesnis</a>
+    }
+    else
+    {
+        <span>Ankstesnis</span>
+    }
+
+    <span>
+        Page @Model.CurrentPage / @Model.TotalPages
+    </span>
+
+    @if (Model.HasNext)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Sekantis</a>
+    }
+    else
+    {
+        <span>Sekantis</span>
+    }
+</div>
+
+<ul>
+    @foreach (var w in Model.Items)
+    {
+        <li>
+            <a asp-controller="Home" asp-action="Index" asp-route-id="@w">@w</a>
+        </li>
+    }
+</ul>
+
+<div>
+    @if (Model.HasPrevious)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Ankstesnis</a>
+    }
+    else
+    {
+        <span>Ankstesnis</span>
+    }
+
+    <span>
+        Page @Model.CurrentPage / @Model.TotalPages
+    </span>
+
+    @if (Model.HasNext)
+    {
+       <a asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Sekantis</a>
+    }
+    else
+    {
+        <span>Sekantis</span>
+    }
+</div>

@@ -1,6 +1,6 @@
 ﻿@model AnagramSolver.WebApp.Models.AnagramViewModel
 
-<form asp-action="Index" method="get">
+<form asp-action="Index" asp-route-id="" method="get">
     <input type="text" name="id" placeholder="Įveskite žodį" />
     <button type="submit">Ieškoti</button>
 </form>
@@ -26,3 +26,7 @@ else if (Model.HasInput && !Model.IsShort && Model.Results.Count == 0)
 {
     <p>Anagramų nerasta.</p>
 }
+
+<span>
+    <a asp-Controller="Words" asp-action="Index">Peržiūrėti sąrašą</a>
+</span>
